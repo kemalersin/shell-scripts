@@ -15,5 +15,5 @@ if [[ $RESPONSE =~ ^(e|E|) ]] && [[ ! -z $RESPONSE ]]; then
   docker exec -it mongodb mongorestore \
     --db $DB_NAME \
     --drop \
-    --dir /backups/$DB_NAME \
+    --dir /backup/$DB_NAME
 fi

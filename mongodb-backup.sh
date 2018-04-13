@@ -5,7 +5,7 @@ source /opt/bin/.env
 DB_NAME=$1
 FILE_NAME=$DB_NAME\_`date +%d%m%Y_%H%M%S`
 
-CONTAINER_DEST=/backups/$FILE_NAME
+CONTAINER_DEST=/backup/$FILE_NAME
 HOST_DEST=$MONGODB_BACKUP_ROOT/$FILE_NAME
 
 docker exec mongodb \
