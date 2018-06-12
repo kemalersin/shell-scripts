@@ -21,7 +21,7 @@ do
   zip -r $HOST_DEST.zip *
   curl -X PUT \
     -u $NEXTCLOUD_USER:$NEXTCLOUD_PASS \
-    $MONGODB_NEXTCLOUD_FTP_BACKUP_URL/$FILE_NAME.zip \
+    $MONGODB_NEXTCLOUD_BACKUP_URL/$FILE_NAME.zip \
     -F file=@$HOST_DEST.zip
  
   rm -rf $HOST_DEST*
