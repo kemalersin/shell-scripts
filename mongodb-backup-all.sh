@@ -11,6 +11,9 @@ do
 
   docker exec mongodb \
     mongodump \
+    -u $MONGODB_USER \
+    -p $MONGODB_PASS \
+    --authenticationDatabase admin \
     --db $DB_NAME \
     --out $CONTAINER_DEST \
 
