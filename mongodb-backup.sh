@@ -18,11 +18,14 @@ docker exec mongodb \
 
 cd $HOST_DEST
 zip -r $HOST_DEST.zip *
-curl -X PUT \
-  -u $NEXTCLOUD_USER:$NEXTCLOUD_PASS \
-  $MONGODB_NEXTCLOUD_BACKUP_URL/$FILE_NAME.zip \
-  -F file=@$HOST_DEST.zip
+
+rclone copy $HOST_DEST.zip google:Backup/MongoDB
+
+#curl -X PUT \
+#  -u $NEXTCLOUD_USER:$NEXTCLOUD_PASS \
+#  $MONGODB_NEXTCLOUD_BACKUP_URL/$FILE_NAME.zip \
+#  -F file=@$HOST_DEST.zip
  
 rm -rf $HOST_DEST*
 
-docker exec --user www-data nextcloud php occ files:scan --all
+#docker exec --user www-data nextcloud php occ files:scan --all
