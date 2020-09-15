@@ -19,14 +19,7 @@ do
 
   cd $HOST_DEST
   zip -r $HOST_DEST.zip *
-  rclone copy $HOST_DEST.zip google:Backup/MongoDB
+  rclone copy $HOST_DEST.zip drive:MongoDB/$DB_NAME
 
-  #curl -X PUT \
-  #  -u $NEXTCLOUD_USER:$NEXTCLOUD_PASS \
-  #  $MONGODB_NEXTCLOUD_BACKUP_URL/$FILE_NAME.zip \
-  #  -F file=@$HOST_DEST.zip
- 
   rm -rf $HOST_DEST*
 done
-
-#docker exec --user www-data nextcloud php occ files:scan --all
